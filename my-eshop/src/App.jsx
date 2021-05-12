@@ -1,6 +1,13 @@
+import NavBar from './nav-bar/NavBar';
+
 function App() {
   return (
-    <div className="bg-gray-50">My App</div>
+    <>
+    <header>
+      <NavBar />
+    </header>
+    <main></main>
+    </>
   );
 }
 export default App;
