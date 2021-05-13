@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Contacts from './contacts/Contacts';
 import NavBar from './nav-bar/NavBar';
 import Products from './products/Products';
 import Vision from './vision/Vision';
@@ -13,6 +14,9 @@ function App() {
       <Switch>
         <Route path="/vision">
           <Vision />
+        </Route>
+        <Route path="/contacts">
+          <Contacts />
         </Route>
         <Route path="/">
           <Products />
