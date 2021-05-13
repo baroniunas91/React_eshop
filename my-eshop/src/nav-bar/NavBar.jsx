@@ -2,7 +2,8 @@ import NavItem from "./components/NavItem";
 
 const navItems = [
     {text: 'PPRODUCTS', route: '/'},
-    {text: 'VISION', route: '/vision'}
+    {text: 'VISION', route: '/vision'},
+    {text: 'CONTACTS', route: '/contacts'}
 ];
 
 function NavBar () {
