@@ -1,5 +1,5 @@
 import Card from "../../common/components/Card";
-import { Link } from "react-router-dom";
+import Button from "../../common/components/Button";
 
 function ProductCard({id, image, title, price}) {
     return (
@@ -12,8 +12,8 @@ function ProductCard({id, image, title, price}) {
                 <div className="text-center font-bold truncate" title={title}>{title}</div>
 
                 <div className="text-center">{price}$</div>
-                <div className="flex justify-center uppercase">
-                    <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" to ={`/products/${id}`}>view</Link>
+                <div className="flex justify-center">
+                    <Button to ={`/products/${id}`}>VIEW</Button>
                 </div>
             </Card>
         </li>
