@@ -18,10 +18,26 @@ function Counter() {
   }
 
   return (
-    <div>
-      <button onClick={handleDecrement}>-</button>
-      <input type="number" value={count} onChange={handleInput} />
-      <button onClick={handleIncrement}>+</button>
+    <div className="mb-4">
+      <button
+        className="bg-white border w-8 hover:bg-gray-200"
+        onClick={handleDecrement}
+      >
+        -
+      </button>
+      <input
+        className="w-8 text-center pl-2"
+        readOnly
+        type="number"
+        value={count}
+        onChange={handleInput}
+      />
+      <button
+        className="bg-white border w-8 hover:bg-gray-200"
+        onClick={handleIncrement}
+      >
+        +
+      </button>
     </div>
   );
 }
