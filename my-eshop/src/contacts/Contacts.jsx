@@ -1,9 +1,5 @@
 function Contacts() {
-    return (
-        <div>
-            This is my contacts page
-        </div>
-    )
+  return <div>This is my contacts page</div>;
 }
 
-export default Contacts
+export default Contacts;
