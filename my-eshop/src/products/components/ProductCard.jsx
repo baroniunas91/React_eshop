@@ -1,5 +1,5 @@
-import Card from "../../common/components/Card";
-import Button from "../../common/components/Button";
+import Card from '../../common/components/Card';
+import Button from '../../common/components/Button';
 
 function ProductCard({ id, image, title, price }) {
   return (

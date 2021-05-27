@@ -1,8 +1,8 @@
-import clsx from "clsx";
-import { Link } from "react-router-dom";
+import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 
 const defaultClasses =
-  "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none";
+  'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none';
 
 function Button({ children, className, to }) {
   const mergedClasses = clsx(defaultClasses, className);

@@ -1,9 +1,9 @@
-import NavItem from "./components/NavItem";
+import NavItem from './components/NavItem';
 
 const navItems = [
-  { text: "PRODUCTS", route: "/" },
-  { text: "VISION", route: "/vision" },
-  { text: "CONTACTS", route: "/contacts" },
+  { text: 'PRODUCTS', route: '/' },
+  { text: 'VISION', route: '/vision' },
+  { text: 'CONTACTS', route: '/contacts' },
 ];
 
 function NavBar() {

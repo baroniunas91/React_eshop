@@ -1,10 +1,10 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Card from "../common/components/Card";
-import { getProduct } from "../common/requests";
-import Counter from "../common/components/Counter";
-import Button from "../common/components/Button";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Card from '../common/components/Card';
+import { getProduct } from '../common/requests';
+import Counter from '../common/components/Counter';
+import Button from '../common/components/Button';
 
 function Product() {
   const { id } = useParams();
@@ -18,7 +18,6 @@ function Product() {
     fetchProduct();
   }, [id]);
 
-  console.log(product);
   return (
     <div className="flex m-auto" style={{ maxWidth: 1000 }}>
       <div className="flex-1 pl-2 pr-8">
