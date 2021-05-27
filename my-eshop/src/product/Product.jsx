@@ -1,6 +1,6 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import Card from '../common/components/Card';
 import { getProduct } from '../common/requests';
 import Counter from '../common/components/Counter';
