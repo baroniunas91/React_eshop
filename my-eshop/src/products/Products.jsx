@@ -1,24 +1,31 @@
-import { useEffect, useState } from "react";
-import ProductCard from "./components/ProductCard";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import ProductCard from './components/ProductCard';
+import { getProducts } from '../common/requests';
 
 function Products() {
-    const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
-    useEffect(() => {
-        const getProducts = async () => {
-            const response = await fetch('https://fakestoreapi.com/products')
-            const products = await response.json();
-            setProducts(products);
-        }
-        getProducts();
-    }, []);
-    
-    return (
-        <ul className="flex flex-wrap">
-            {products.map((x) => (
-                <ProductCard key={x.id} id={x.id} image={x.image} title={x.title} price={x.price}/>
-            ))}
-        </ul>
-    );
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data } = await axios(getProducts);
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
+
+  return (
+    <ul className="flex flex-wrap">
+      {products.map((x) => (
+        <ProductCard
+          key={x.id}
+          id={x.id}
+          image={x.image}
+          title={x.title}
+          price={x.price}
+        />
+      ))}
+    </ul>
+  );
 }
-export default Products
+export default Products;
