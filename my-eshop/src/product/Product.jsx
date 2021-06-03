@@ -31,7 +31,7 @@ function Product() {
         <div className="text-3xl font-bold mb-4">{product?.price}$</div>
         <p className="mb-4">{product?.description}</p>
         <div className="font-semibold mb-2">Quantity</div>
-        <Counter></Counter>
+        <Counter className="mb-4"></Counter>
         <Button>ADD TO CART</Button>
       </div>
     </div>
