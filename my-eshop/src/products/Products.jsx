@@ -12,7 +12,6 @@ function Products() {
     const fetchProducts = async () => {
       setIsLoading(true);
       const { data } = await axios(getProducts);
-
       setIsLoading(false);
       setProducts(data);
     };
@@ -20,7 +19,7 @@ function Products() {
   }, []);
 
   if (isLoading || !products) {
-    return <Spinner text="Fetching products..." />;
+    return <Spinner text="Fetching products" />;
   }
   return (
     <ul className="flex flex-wrap">
