@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductCard from './components/ProductCard';
 import { getProducts } from '../common/requests';
+import Spinner from '../common/components/Spinner';
 
 function Products() {
   const [products, setProducts] = useState();
@@ -19,7 +20,7 @@ function Products() {
   }, []);
 
   if (isLoading || !products) {
-    return <div>I'M Loading...</div>;
+    return <Spinner text="Fetching products..." />;
   }
   return (
     <ul className="flex flex-wrap">
