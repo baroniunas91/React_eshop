@@ -1,11 +1,13 @@
 module.exports = {
-    purge: ['./src/**/*.{js,jsx}', './public/index.html'],
-    darkMode: false,
-    theme: {
-      extend: {},
+  purge: ['./src/**/*.{js,jsx}', './public/index.html'],
+  darkMode: false,
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {
+      translate: ['active'],
     },
-    variants: {
-      extend: {},
-    },
-    plugins: [],
-  }
+  },
+  plugins: [],
+};

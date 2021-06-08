@@ -11,7 +11,7 @@ function App() {
       <header>
         <NavBar />
       </header>
-      <main className="p-2">
+      <main className="p-2" style={{ height: 'calc(100vh - 44px)' }}>
         <Switch>
           <Route exact path={['/', '/products']} component={Products} />
           <Route exact path="/products/:id" component={Product} />
