@@ -9,11 +9,16 @@ import useApi from '../common/hooks/useApi';
 
 function Product() {
   const { id } = useParams();
-  const { isLoading, data: product, call } = useApi();
+  const { isLoading, data: product, call: getProductCall } = useApi();
+  const { call: addToCartCall } = useApi();
+
   useEffect(() => {
-    call(getProduct(id));
+    getProductCall(getProduct(id));
   }, [id]); //eslint-disable-line
 
+  function handleAddToCart() {
+    console.log('add to cart');
+  }
   if (isLoading || !product) {
     return <Spinner text="Fetching product info" />;
   }
@@ -32,7 +37,9 @@ function Product() {
         <p className="mb-4">{product.description}</p>
         <div className="font-semibold mb-2">Quantity</div>
         <Counter className="mb-4"></Counter>
-        <Button type={buttonTypes.PRIMARY}>ADD TO CART</Button>
+        <Button type={buttonTypes.PRIMARY} onClick={handleAddToCart}>
+          ADD TO CART
+        </Button>
       </div>
     </div>
   );
