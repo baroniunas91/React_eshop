@@ -1,26 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import Card from '../common/components/Card';
 import { getProduct } from '../common/requests';
 import Counter from '../common/components/Counter';
 import Button, { buttonTypes } from '../common/components/Button';
 import Spinner from '../common/components/Spinner';
+import useApi from '../common/hooks/useApi';
 
 function Product() {
   const { id } = useParams();
-  const [product, setProduct] = useState();
-  const [isLoading, setIsLoading] = useState(false);
-
+  const { isLoading, data: product, call } = useApi();
   useEffect(() => {
-    const fetchProduct = async () => {
-      setIsLoading(true);
-      const { data } = await axios(getProduct(id));
-      setIsLoading(false);
-      setProduct(data);
-    };
-    fetchProduct();
-  }, [id]);
+    call(getProduct(id));
+  }, [id]); //eslint-disable-line
 
   if (isLoading || !product) {
     return <Spinner text="Fetching product info" />;
