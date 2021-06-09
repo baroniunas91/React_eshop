@@ -4,7 +4,7 @@ import axios from 'axios';
 import Card from '../common/components/Card';
 import { getProduct } from '../common/requests';
 import Counter from '../common/components/Counter';
-import Button from '../common/components/Button';
+import Button, { buttonTypes } from '../common/components/Button';
 import Spinner from '../common/components/Spinner';
 
 function Product() {
@@ -40,7 +40,7 @@ function Product() {
         <p className="mb-4">{product.description}</p>
         <div className="font-semibold mb-2">Quantity</div>
         <Counter className="mb-4"></Counter>
-        <Button>ADD TO CART</Button>
+        <Button type={buttonTypes.PRIMARY}>ADD TO CART</Button>
       </div>
     </div>
   );
