@@ -5,16 +5,12 @@ function Spinner({ text = 'Loading' }) {
   const [dots, setDots] = useState('');
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (dots !== '...') {
-        setDots((dots) => dots + '.');
-      } else {
-        setDots('');
-      }
+      setDots((prevdots) => (prevdots === '...' ? '' : prevdots + '.'));
     }, 500);
     return () => {
       clearInterval(intervalId);
     };
-  }, [dots]);
+  }, []);
 
   return (
     <div className="h-full flex-col flex items-center justify-center">
