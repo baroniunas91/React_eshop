@@ -11,7 +11,7 @@ import useCounter from '../common/hooks/useCounter';
 function Product() {
   const { id } = useParams();
   const { isLoading, data: product, call: getProductCall } = useApi();
-  const { call: addToCartCall } = useApi();
+  const { isLoading: isAddToCartLoading, call: addToCartCall } = useApi();
 
   const counterProps = useCounter();
 
@@ -42,8 +42,12 @@ function Product() {
         <p className="mb-4">{product.description}</p>
         <div className="font-semibold mb-2">Quantity</div>
         <Counter className="mb-4" {...counterProps}></Counter>
-        <Button type={buttonTypes.PRIMARY} onClick={handleAddToCart}>
-          ADD TO CART
+        <Button
+          type={buttonTypes.PRIMARY}
+          onClick={handleAddToCart}
+          disabled={isAddToCartLoading}
+        >
+          {isAddToCartLoading ? 'ADDING...' : 'ADD TO CART'}
         </Button>
       </div>
     </div>
