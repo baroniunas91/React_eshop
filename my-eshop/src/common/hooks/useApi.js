@@ -16,6 +16,7 @@ function useApi() {
     } catch (e) {
       setState((prev) => ({ ...prev, isLoading: false }));
       console.error(e);
+      alert("Error. Can't fetch data!");
       //redirect to error page
     }
   }
