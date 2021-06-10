@@ -1,12 +1,14 @@
+import { useState } from 'react';
+
 function useCounter() {
   const [count, setCount] = useState(1);
 
-  function handleIncrement() {
+  function onIncrement() {
     // setCount(count + 1);
     setCount((prevCount) => parseInt(prevCount + 1));
   }
 
-  function handleDecrement() {
+  function onDecrement() {
     // setCount(count - 1);
     if (count === 1) {
       setCount(1);
@@ -15,7 +17,7 @@ function useCounter() {
     }
   }
 
-  function handleInput(event) {
+  function onInput(event) {
     const val = event.target.valueAsNumber;
     if (isNaN(val)) {
       setCount('');
@@ -25,8 +27,10 @@ function useCounter() {
   }
 
   return {
+    count,
     onIncrement,
-    onDe,
+    onDecrement,
+    onInput,
   };
 }
 
