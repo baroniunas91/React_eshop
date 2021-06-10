@@ -38,7 +38,7 @@ function Product() {
 
       <div className="flex-1 pr-2 pl-8">
         <h1 className="text-2xl font-semibold mb-4">{product.title}</h1>
-        <div className="text-3xl font-bold mb-4">{product.price}$</div>
+        <div className="text-3xl font-bold mb-4">${product.price}</div>
         <p className="mb-4">{product.description}</p>
         <div className="font-semibold mb-2">Quantity</div>
         <Counter className="mb-4" {...counterProps}></Counter>
