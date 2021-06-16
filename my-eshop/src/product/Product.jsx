@@ -1,26 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import Card from '../common/components/Card';
-import { getProduct } from '../common/requests';
+import { addToCart, getProduct } from '../common/requests';
 import Counter from '../common/components/Counter';
-import Button from '../common/components/Button';
+import Button, { buttonTypes } from '../common/components/Button';
 import Spinner from '../common/components/Spinner';
+import useApi from '../common/hooks/useApi';
+import useCounter from '../common/hooks/useCounter';
 
 function Product() {
   const { id } = useParams();
-  const [product, setProduct] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  const { isLoading, data: product, call: getProductCall } = useApi();
+  const { isLoading: isAddToCartLoading, call: addToCartCall } = useApi();
+
+  const counterProps = useCounter();
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      setIsLoading(true);
-      const { data } = await axios(getProduct(id));
-      setIsLoading(false);
-      setProduct(data);
-    };
-    fetchProduct();
-  }, [id]);
+    getProductCall(getProduct(id));
+  }, [id]); //eslint-disable-line
+
+  function handleAddToCart() {
+    addToCartCall(addToCart(id, counterProps.count));
+    console.log('add to cart', counterProps.count);
+  }
 
   if (isLoading || !product) {
     return <Spinner text="Fetching product info" />;
@@ -36,11 +38,17 @@ function Product() {
 
       <div className="flex-1 pr-2 pl-8">
         <h1 className="text-2xl font-semibold mb-4">{product.title}</h1>
-        <div className="text-3xl font-bold mb-4">{product.price}$</div>
+        <div className="text-3xl font-bold mb-4">${product.price}</div>
         <p className="mb-4">{product.description}</p>
         <div className="font-semibold mb-2">Quantity</div>
-        <Counter className="mb-4"></Counter>
-        <Button>ADD TO CART</Button>
+        <Counter className="mb-4" {...counterProps}></Counter>
+        <Button
+          type={buttonTypes.PRIMARY}
+          onClick={handleAddToCart}
+          disabled={isAddToCartLoading}
+        >
+          {isAddToCartLoading ? 'ADDING...' : 'ADD TO CART'}
+        </Button>
       </div>
     </div>
   );

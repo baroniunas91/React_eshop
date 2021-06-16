@@ -13,7 +13,7 @@ function ProductCard({ id, image, title, price }) {
           {title}
         </div>
 
-        <div className="text-center">{price}$</div>
+        <div className="text-center">${price}</div>
         <div className="flex justify-center">
           <Button to={`/products/${id}`}>VIEW</Button>
         </div>
