@@ -12,7 +12,7 @@ const typeClassMap = {
   info: 'bg-blue-500',
 };
 const initialClasses =
-  'fixed text-white font-semibold bottom-3 right-3 p-3 z-50 shadow';
+  'fixed text-white font-semibold bottom-3 right-3 p-3 z-50 shadow animate-slide-in';
 
 function Notification({ text, type, hangTimeInMS = 3000 }) {
   useEffect(() => {
