@@ -5,7 +5,7 @@ function CartIcon({ to }) {
   return (
     <Link
       to={to}
-      className="mr-3 my-1 py-0.5 px-1 flex items-center cursor-pointer hover:bg-indigo-50 rounded"
+      className="mr-3 my-1 py-0.5 px-1 flex items-center cursor-pointer hover:text-white rounded"
     >
       <CartIconSvg />
     </Link>
