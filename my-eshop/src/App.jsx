@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Cart from './cart/Cart';
 import Contacts from './contacts/Contacts';
 import NavBar from './nav-bar/NavBar';
 import Product from './product/Product';
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/products/:id" component={Product} />
           <Route exact path="/vision" component={Vision} />
           <Route exact path="/contacts" component={Contacts} />
+          <Route exact path="/cart" component={Cart} />
         </Switch>
       </main>
     </Router>
