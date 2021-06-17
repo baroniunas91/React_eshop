@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
+import clsx from 'clsx';
 
-function NavItem({ content, route }) {
+const initialClasses = 'p-2 text-xl font-semibold hover:text-white';
+
+function NavItem({ content, route, className }) {
   return (
-    <li className="p-2 text-xl font-semibold hover:text-white">
+    <li className={clsx(initialClasses, className)}>
       <Link to={route}>{content}</Link>
     </li>
   );

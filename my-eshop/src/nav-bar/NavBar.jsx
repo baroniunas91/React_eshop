@@ -1,5 +1,4 @@
-import CartIcon from '../common/components/CartIcon';
-// import CartNavItem from './components/CartNavItem';
+import CartNavItem from './components/CartNavItem';
 import NavItem from './components/NavItem';
 
 const navItems = [
@@ -7,18 +6,16 @@ const navItems = [
   { content: 'VISION', route: '/vision' },
   { content: 'CONTACTS', route: '/contacts' },
 ];
-const cartRoute = '/cart';
 
 function NavBar() {
   return (
-    <nav className="bg-blue-400 flex justify-between">
+    <nav className="bg-blue-400">
       <ul className="flex">
         {navItems.map((x) => (
           <NavItem key={x.route} {...x} />
         ))}
+        <CartNavItem />
       </ul>
-      <CartIcon to={cartRoute} />
-      {/* <CartNavItem /> */}
     </nav>
   );
 }
