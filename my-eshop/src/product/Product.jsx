@@ -7,6 +7,7 @@ import Button, { buttonTypes } from '../common/components/Button';
 import Spinner from '../common/components/Spinner';
 import useApi from '../common/hooks/useApi';
 import useCounter from '../common/hooks/useCounter';
+import { notification } from '../common/components/Notification';
 
 function Product() {
   const { id } = useParams();
@@ -19,9 +20,9 @@ function Product() {
     getProductCall(getProduct(id));
   }, [id]); //eslint-disable-line
 
-  function handleAddToCart() {
-    addToCartCall(addToCart(id, counterProps.count));
-    console.log('add to cart', counterProps.count);
+  async function handleAddToCart() {
+    await addToCartCall(addToCart(id, counterProps.count));
+    notification.success({ text: 'Product added to cart' });
   }
 
   if (isLoading || !product) {
