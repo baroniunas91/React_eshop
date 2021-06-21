@@ -15,3 +15,8 @@ export const addToCart = (productId, quantity) => ({
   method: 'POST',
   data: { userId: 5, products: [{ productId, quantity }] },
 });
+
+export const getCart = {
+  url: 'https://fakestoreapi.com/carts/5',
+  method: 'GET',
+};

@@ -36,7 +36,6 @@ function Product() {
           <img src={product.image} alt={product?.title} />
         </Card>
       </div>
-
       <div className="flex-1 pr-2 pl-8">
         <h1 className="text-2xl font-semibold mb-4">{product.title}</h1>
         <div className="text-3xl font-bold mb-4">${product.price}</div>
